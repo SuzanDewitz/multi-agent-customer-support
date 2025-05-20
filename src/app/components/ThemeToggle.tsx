@@ -1,18 +1,36 @@
 'use client'
 
-import { useTheme } from './ThemeProvider'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export default function ThemeToggle() {
-  const { theme, toggleTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  // Avoid hydration mismatch by only rendering after mount
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        // Sun icon for dark mode
+        <svg
+          className="w-5 h-5 text-gray-800 dark:text-gray-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -21,7 +39,14 @@ export default function ThemeToggle() {
           />
         </svg>
       ) : (
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        // Moon icon for light mode
+        <svg
+          className="w-5 h-5 text-gray-800 dark:text-gray-200"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
