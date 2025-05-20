@@ -1,46 +1,49 @@
 'use client'
 
-import { useState } from 'react'
-import { useTheme } from './ThemeProvider'
+import { useState, useEffect } from 'react'
+import { useTheme } from 'next-themes'
 
 export default function ChatWidget() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState<Array<{ text: string; isUser: boolean }>>([
-    { text: "Hello! How can I help you today?", isUser: false }
-  ])
+  const [mounted, setMounted] = useState(false)
+  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant', content: string }>>([])
   const [inputMessage, setInputMessage] = useState('')
-  const { theme } = useTheme()
+  const { resolvedTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!inputMessage.trim()) return
 
     // Add user message
-    setMessages(prev => [...prev, { text: inputMessage, isUser: true }])
+    setMessages(prev => [...prev, { role: 'user', content: inputMessage }])
     setInputMessage('')
 
     // Simulate AI response
     setTimeout(() => {
-      setMessages(prev => [...prev, {
-        text: "Thank you for your message. Our AI agents are processing your request and will respond shortly.",
-        isUser: false
-      }])
+      setMessages(prev => [...prev, { role: 'assistant', content: "Thank you for your message. Our AI agents are processing your request and will respond shortly." }])
     }, 1000)
   }
 
   return (
     <div className="fixed bottom-4 right-4 z-50">
-      {isOpen ? (
+      {mounted ? (
         <div className={`w-80 h-96 rounded-lg shadow-xl flex flex-col ${
-          theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
+          resolvedTheme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
         }`}>
           {/* Chat header */}
           <div className={`p-4 border-b ${
-            theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
+            resolvedTheme === 'dark' ? 'border-gray-700' : 'border-gray-200'
           } flex justify-between items-center`}>
             <h3 className="font-semibold">Chat with us</h3>
             <button
-              onClick={() => setIsOpen(false)}
+              onClick={() => setMounted(false)}
               className="text-gray-500 hover:text-gray-700"
             >
               ✕
@@ -52,16 +55,16 @@ export default function ChatWidget() {
             {messages.map((message, index) => (
               <div
                 key={index}
-                className={`flex ${message.isUser ? 'justify-end' : 'justify-start'}`}
+                className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div className={`max-w-[80%] rounded-lg p-3 ${
-                  message.isUser
+                  message.role === 'user'
                     ? 'bg-blue-600 text-white'
-                    : theme === 'dark'
+                    : resolvedTheme === 'dark'
                     ? 'bg-gray-700 text-white'
                     : 'bg-gray-100 text-gray-900'
                 }`}>
-                  {message.text}
+                  {message.content}
                 </div>
               </div>
             ))}
@@ -69,7 +72,7 @@ export default function ChatWidget() {
 
           {/* Input form */}
           <form onSubmit={handleSubmit} className={`p-4 border-t ${
-            theme === 'dark' ? 'border-gray-700' : 'border-gray-200'
+            resolvedTheme === 'dark' ? 'border-gray-700' : 'border-gray-200'
           }`}>
             <div className="flex space-x-2">
               <input
@@ -78,7 +81,7 @@ export default function ChatWidget() {
                 onChange={(e) => setInputMessage(e.target.value)}
                 placeholder="Type your message..."
                 className={`flex-1 rounded-lg px-4 py-2 ${
-                  theme === 'dark'
+                  resolvedTheme === 'dark'
                     ? 'bg-gray-700 text-white placeholder-gray-400'
                     : 'bg-gray-100 text-gray-900 placeholder-gray-500'
                 } focus:outline-none focus:ring-2 focus:ring-blue-500`}
@@ -94,11 +97,11 @@ export default function ChatWidget() {
         </div>
       ) : (
         <button
-          onClick={() => setIsOpen(true)}
-          className="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors btn-hover-effect"
+          onClick={() => setMounted(true)}
+          className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors btn-hover-effect"
         >
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
