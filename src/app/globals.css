@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 51, 51, 51;
+  --background-rgb: 250, 250, 252;
+  --primary-color: 79, 70, 229;
+  --secondary-color: 236, 72, 153;
+  --accent-color: 16, 185, 129;
+  --gradient-start: 79, 70, 229;
+  --gradient-end: 236, 72, 153;
+}
+
+[data-theme='dark'] {
+  --foreground-rgb: 229, 231, 235;
+  --background-rgb: 17, 24, 39;
+  --primary-color: 99, 102, 241;
+  --secondary-color: 244, 114, 182;
+  --accent-color: 52, 211, 153;
+  --gradient-start: 99, 102, 241;
+  --gradient-end: 244, 114, 182;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, rgb(var(--gradient-start)), rgb(var(--gradient-end)));
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, rgb(var(--gradient-start)), rgb(var(--gradient-end)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300;
+  border: 1px solid rgba(var(--primary-color), 0.1);
+}
+
+.card:hover {
+  @apply transform -translate-y-1 shadow-xl;
+  border-color: rgba(var(--primary-color), 0.2);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  background: linear-gradient(135deg, rgb(var(--gradient-start)), rgb(var(--gradient-end)));
+  color: white;
+}
+
+.btn-primary:hover {
+  @apply transform scale-105 shadow-lg;
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  background: rgba(var(--primary-color), 0.1);
+  color: rgb(var(--primary-color));
+}
+
+.btn-secondary:hover {
+  @apply transform scale-105;
+  background: rgba(var(--primary-color), 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--background-rgb));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(var(--primary-color), 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--primary-color), 0.7);
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-4 py-3 rounded-lg transition-all duration-200;
+  background: rgba(var(--background-rgb), 0.8);
+  border: 1px solid rgba(var(--primary-color), 0.2);
+}
+
+.form-input:focus {
+  @apply outline-none ring-2;
+  border-color: rgb(var(--primary-color));
+  box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
+}
+
+/* Navigation styles */
+.nav-link {
+  @apply px-4 py-2 rounded-lg transition-all duration-200;
+  color: rgb(var(--foreground-rgb));
+}
+
+.nav-link:hover {
+  background: rgba(var(--primary-color), 0.1);
+  color: rgb(var(--primary-color));
+}
+
+/* Hero section styles */
+.hero-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(var(--primary-color), 0.1) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Feature card styles */
+.feature-card {
+  @apply p-6 rounded-xl transition-all duration-300;
+  background: rgba(var(--background-rgb), 0.8);
+  border: 1px solid rgba(var(--primary-color), 0.1);
+}
+
+.feature-card:hover {
+  @apply transform -translate-y-1 shadow-lg;
+  border-color: rgba(var(--primary-color), 0.3);
+  background: rgba(var(--background-rgb), 0.9);
+}
+
+/* Section styles */
+.section {
+  @apply py-16 px-4;
+  background: linear-gradient(to bottom, 
+    rgba(var(--background-rgb), 0.8),
+    rgba(var(--background-rgb), 1)
+  );
+}
+
+/* Footer styles */
+.footer {
+  @apply py-12 px-4;
+  background: linear-gradient(to top,
+    rgba(var(--background-rgb), 0.95),
+    rgba(var(--background-rgb), 1)
+  );
+  border-top: 1px solid rgba(var(--primary-color), 0.1);
+} 
