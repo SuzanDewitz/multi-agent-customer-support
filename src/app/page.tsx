@@ -5,134 +5,210 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative hero-pattern overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-pink-500/10" />
-        <div className="container mx-auto px-4 py-24 relative">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 gradient-text animate-fade-in">
-              Transform Your Customer Support with AI
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-slide-up">
-              Experience the future of customer service with our intelligent multi-agent system.
-              Faster responses, happier customers, and seamless support around the clock.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-              <Link href="/features" className="btn-primary">
-                Explore Features
-              </Link>
-              <Link href="/contact" className="btn-secondary">
-                Get Started
-              </Link>
+      <section id="home" className="hero">
+        <div className="container mx-auto px-6 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Hero Content */}
+            <div className="hero-content">
+              <h1 className="mb-6 animate-fade-in">
+                Transform Your Customer Support with AI
+              </h1>
+              <p className="text-xl mb-8 animate-slide-up">
+                Experience the future of customer service with our intelligent multi-agent system.
+                Faster responses, happier customers, and seamless support around the clock.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-6 animate-slide-up">
+                <a href="#features" className="btn-primary">
+                  Explore Features
+                </a>
+                <a href="#contact" className="btn-secondary">
+                  Get Started
+                </a>
+              </div>
+            </div>
+
+            {/* Hero Image */}
+            <div className="hero-image animate-fade-in">
+              <div className="relative w-full aspect-square max-w-lg mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl transform rotate-3"></div>
+                <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden">
+                  <div className="p-6">
+                    {/* Chat Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                      </div>
+                      <div className="text-sm font-medium text-gray-500 dark:text-gray-400">
+                        AI Support Chat
+                      </div>
+                    </div>
+
+                    {/* Chat Messages */}
+                    <div className="space-y-4">
+                      {/* AI Message */}
+                      <div className="chat-message ai animate-fade-in">
+                        <div className="chat-avatar ai">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">AI Assistant</div>
+                          <div className="bg-gray-100 dark:bg-gray-700 rounded-lg p-3">
+                            <p className="text-sm">How can I help you today?</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* User Message */}
+                      <div className="chat-message user animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                        <div className="chat-avatar user">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">You</div>
+                          <div className="bg-primary/5 dark:bg-primary/10 rounded-lg p-3">
+                            <p className="text-sm">I need help with my recent order.</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* AI Response with Typing */}
+                      <div className="chat-message ai animate-fade-in" style={{ animationDelay: '0.6s' }}>
+                        <div className="chat-avatar ai">
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                          </svg>
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">AI Assistant</div>
+                          <div className="bg-gray-100 dark:bg-gray-700 rounded-lg p-3">
+                            <p className="text-sm">I'll help you with that. Could you please provide your order number?</p>
+                            <div className="typing-indicator mt-2"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Quick Links Section */}
-      <section className="section bg-gradient-to-br from-indigo-50 via-white to-purple-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">
-            Explore Our Platform
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            {mainSections.map((section, index) => (
-              <Link 
-                key={index} 
-                href={section.href}
-                className="group relative bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-slide-up border border-gray-100 dark:border-gray-700"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 dark:from-indigo-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative">
-                  <div className="w-12 h-12 mb-6 gradient-bg rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                    {section.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                    {section.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                    {section.description}
-                  </p>
-                  <div className="flex items-center text-indigo-600 dark:text-indigo-400 group-hover:translate-x-2 transition-transform duration-300">
-                    <span className="text-sm font-medium">Learn more</span>
-                    <svg className="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Preview */}
-      <section className="section bg-gradient-to-br from-purple-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="container mx-auto px-4 py-20">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 gradient-text">
-            Why Choose Our Platform?
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index} 
-                className="group relative bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 animate-slide-up border border-gray-100 dark:border-gray-700"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-purple-500/5 to-pink-500/5 dark:from-indigo-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative">
-                  <div className="w-12 h-12 mb-6 gradient-bg rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="section bg-gradient-to-br from-purple-50 via-indigo-50 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div 
-                key={index} 
-                className="animate-slide-up"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
-                <div className="text-gray-600 dark:text-gray-300">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="section">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 gradient-text">
-              Ready to Transform Your Customer Support?
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Join thousands of businesses that trust our AI-powered support system.
-              Start your journey today and see the difference.
+      {/* About Section */}
+      <section id="about" className="py-32 bg-white dark:bg-gray-900 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:via-gray-800/50"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-10 gradient-text">About Our Team</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+              We are a dedicated team of AI experts and customer service professionals
+              working together to revolutionize customer support through intelligent automation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact" className="btn-primary">
-                Schedule a Demo
-              </Link>
-              <Link href="/features" className="btn-secondary">
-                Learn More
-              </Link>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+              {values.map((value, index) => (
+                <div key={index} className="p-8 rounded-xl bg-gray-50 dark:bg-gray-800 shadow-sm hover:shadow-md transition-all duration-300">
+                  <h3 className="text-2xl font-bold mb-4 gradient-text">{value.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-lg">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-32 bg-gray-50 dark:bg-gray-800 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-transparent dark:via-gray-900/50"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Our Features</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Discover how our multi-agent system revolutionizes customer support
+              with cutting-edge AI technology and seamless integration.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {features.map((feature, index) => (
+              <div key={index} className="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-2xl font-bold mb-4 gradient-text">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">{feature.description}</p>
+                <ul className="space-y-4">
+                  {feature.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className="text-green-500 mr-3 text-xl">✓</span>
+                      <span className="text-gray-600 dark:text-gray-300 text-lg">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-32 bg-white dark:bg-gray-900 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-50/50 to-transparent dark:via-gray-800/50"></div>
+        <div className="container mx-auto px-4 relative">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 gradient-text">Contact Us</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-10 shadow-sm">
+                <h3 className="text-2xl font-semibold mb-8">Get in Touch</h3>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-3">Address</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg">
+                      123 AI Street<br />
+                      Tech City, TC 12345<br />
+                      United States
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-3">Email</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg">
+                      support@multiagentsupport.com
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-white mb-3">Phone</h4>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg">
+                      +1 (555) 123-4567
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-10 shadow-sm">
+                <form className="space-y-8">
+                  <div>
+                    <label htmlFor="name" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+                    <input type="text" id="name" className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg py-3" />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Email</label>
+                    <input type="email" id="email" className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg py-3" />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-lg font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                    <textarea id="message" rows={5} className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-lg py-3"></textarea>
+                  </div>
+                  <button type="submit" className="w-full btn-primary text-lg py-4">
+                    Send Message
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -141,82 +217,47 @@ export default function Home() {
   )
 }
 
-const mainSections = [
+const values = [
   {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    ),
-    title: "Home",
-    description: "Welcome to our AI-powered customer support platform. Learn about our services and get started.",
-    href: "/"
+    title: "Innovation",
+    description: "We constantly push the boundaries of what's possible in AI-powered customer support."
   },
   {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    ),
-    title: "About",
-    description: "Meet our team and learn about our mission to revolutionize customer support with AI technology.",
-    href: "/about"
+    title: "Excellence",
+    description: "We strive for excellence in every aspect of our service and technology."
   },
   {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    title: "Features",
-    description: "Discover our powerful AI features and how they can transform your customer support experience.",
-    href: "/features"
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Contact",
-    description: "Get in touch with our team to discuss how we can help transform your customer support.",
-    href: "/contact"
+    title: "Customer First",
+    description: "Our customers' success is our top priority in everything we do."
   }
 ]
 
 const features = [
   {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    title: "Lightning Fast Responses",
-    description: "Our AI agents provide instant responses to customer queries, reducing wait times and improving satisfaction."
+    title: "AI-Powered Agents",
+    description: "Our intelligent agents work together to provide comprehensive support.",
+    benefits: [
+      "Natural language understanding",
+      "Context-aware responses",
+      "Continuous learning and improvement"
+    ]
   },
   {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-      </svg>
-    ),
-    title: "24/7 Availability",
-    description: "Round-the-clock support ensures your customers get help whenever they need it, without any downtime."
+    title: "Real-time Processing",
+    description: "Lightning-fast response times with advanced processing capabilities.",
+    benefits: [
+      "Instant query resolution",
+      "Parallel processing",
+      "Scalable infrastructure"
+    ]
   },
   {
-    icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    ),
-    title: "Intelligent Solutions",
-    description: "Advanced AI algorithms understand context and provide accurate, personalized solutions to complex problems."
+    title: "Smart Routing",
+    description: "Intelligent ticket distribution to the most appropriate agent.",
+    benefits: [
+      "Priority-based routing",
+      "Skill-based assignment",
+      "Load balancing"
+    ]
   }
-]
-
-const stats = [
-  { value: "99.9%", label: "Uptime" },
-  { value: "24/7", label: "Support" },
-  { value: "10k+", label: "Happy Customers" },
-  { value: "50ms", label: "Response Time" }
 ] 
