@@ -4,15 +4,21 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* Logo in Middle of Page */}
+      <div className="h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+        <div className="text-center max-w-4xl mx-auto px-4">
+          <p className="text-3xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Transform your customer support with intelligent AI agents
+          </p>
+        </div>
+      </div>
+
       {/* Hero Section */}
-      <section id="home" className="hero">
+      <section id="home" className="hero pt-20">
         <div className="container mx-auto px-6 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Hero Content */}
             <div className="hero-content">
-              <h1 className="mb-6 animate-fade-in">
-                Transform Your Customer Support with AI
-              </h1>
               <p className="text-xl mb-8 animate-slide-up">
                 Experience the future of customer service with our intelligent multi-agent system.
                 Faster responses, happier customers, and seamless support around the clock.
